@@ -8,6 +8,14 @@ if ( ! function_exists( 'ceris_child_theme_scripts_method' ) ) {
 
 add_action('wp_enqueue_scripts', 'ceris_child_theme_scripts_method');
 
+function SearchFilter($query) {
+    if ($query->is_search) {
+        $query->set('post_type', 'post');
+    }
+    return $query;
+}
+add_filter('pre_get_posts','SearchFilter');
+
 /********* custom widget *************/    
 function hstngr_register_widget() {
     register_widget( 'hstngr_widget' );
@@ -30,7 +38,7 @@ class hstngr_widget extends WP_Widget {
         $linkedin_link = apply_filters( 'widget_title', $instance['linkedin_link'] );
         echo $args['before_widget'];
         //output
-        echo __( '<div class="widget__title block-heading block-heading--line"><h4 class="widget__title-text">Stay Connected</h4></div>', 'ceris' );
+        echo __( '<div class="widget__title block-heading block-heading--line"><h4 class="widget__title-text">Follow Us</h4></div>', 'ceris' );
         
         //if title is present
         echo __('<ul class="list-unstyled list-space-xs">', 'ceris' );

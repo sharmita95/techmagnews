@@ -449,13 +449,15 @@ element.style {
 
 .archive .site-content{
     width: 1200px;
-    margin-top: 40px;
+    padding-top: 40px;
+    margin: 0 auto;
 }
 
 
 .atbs-single-style-4{
     width: 1200px;
-    margin-top: 40px;
+    padding-top: 40px;
+    margin: 0 auto;
 }
 .atbs-single-style-4 .atbs-ceris-sub-col {
     margin-top: 23px;
